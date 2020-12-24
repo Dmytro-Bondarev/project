@@ -1,22 +1,18 @@
 import React, {Component} from 'react';
 import PostInfo from "./PostInfo";
 import CommentsInfo from "./CommentsInfo";
+import {ServiseComments} from "../services/ServiseComments";
+import {ServisePost} from "../services/ServisePost";
 
 
-class PostsArr extends Component {
+class Post extends Component {
+    GetServiseComments = new ServiseComments()
+    GetServisePost = new ServisePost()
     state = {posts:[],comments:[]};
 
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(value => value.json())
-            .then(postsAPI =>{
-                this.setState({posts:postsAPI});
-            });
-        fetch('https://jsonplaceholder.typicode.com/comments')
-            .then(value => value.json())
-            .then(commentsAPI =>{
-                this.setState({comments:commentsAPI});
-            });
+        this.GetServisePost.getPost().then(postAPI=>this.setState({posts: postAPI}));
+        this.GetServiseComments.getCom().then(commentsAPI=>this.setState({comments: commentsAPI}));
     };
 
 
@@ -37,4 +33,4 @@ class PostsArr extends Component {
     }
 }
 
-export default PostsArr;
+export default Post;

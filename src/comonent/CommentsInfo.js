@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './ComentsInfoStyle.css'
-class CommentsArr extends Component {
+
+class CommentsInfo extends Component {
     state = {cmtOn:"off"}
     no = true;
 
@@ -33,4 +34,4 @@ class CommentsArr extends Component {
     }
 }
 
-export default CommentsArr;
+export default CommentsInfo;
