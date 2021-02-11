@@ -7,25 +7,25 @@ import {
     Link
 } from "react-router-dom";
 import AllCom from "./Components/All_Coment/All_Com";
+import All_User from "./Components/All_User/All_User";
 class App extends Component {
     render() {
         return (
             <Router>
             <div>
                 <div>
-                <Link to={'/posts'}>
-                    posts
+                <Link to={'/user'}>
+                    user
                 </Link>
                 </div>
-                <div>
-                <Link to={'/coments'}>
-                    coments
-                </Link>
-                </div>
+            <div>
+                <hr/>
                 <Switch>
-                    <Route path={'/posts'} component={AllPost}/>
-                    <Route path={'/coments'} component={AllCom}/>
+                    <Route path={'/user'} render={()=><All_User/>}/>
+
                 </Switch>
+                <hr/>
+            </div>
             </div>
 
             </Router>
